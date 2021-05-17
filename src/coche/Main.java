@@ -6,30 +6,42 @@ package coche;
  */
 public class Main {
     
-      public static void main(String[] args) {
-        Coche miCoche;
+    /**
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        Coche mycar;
         int stockActual;
         
-        miCoche = new Coche("Opel",12000,500);
-        try 
-        {
-            System.out.println("Venta de Coches");
-            miCoche.vender(300);
-        } catch (Exception e)
-        {
-            System.out.print("Fallo al vender " + e);
-        }
+        mycar = new Coche("Opel",12000,500);
+        vende_car(mycar);
         
+        compra_car(mycar);
+        stockActual = mycar.obtenerStock();
+        System.out.println("El stock actual es "+ stockActual );
+    }
+
+    private static void compra_car(Coche mycar) {
         try
         {
             System.out.println("Compra de Coches");
-            miCoche.comprar(500);
+            mycar.comprar(500);
         } catch (Exception e)
         {
             System.out.print("Fallo al ingresar " + e);
         }
-        stockActual = miCoche.obtenerStock();
-        System.out.println("El stock actual es "+ stockActual );
+    }
+
+    private static void vende_car(Coche mycar) {
+        try
+        {
+            System.out.println("Venta de Coches");
+            mycar.vender(300, 100);
+        } catch (Exception e)
+        {
+            System.out.print("Fallo al vender " + e);
+        }
     }
 
 }
